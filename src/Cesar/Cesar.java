@@ -16,8 +16,29 @@ import javax.swing.*;
 
 public class Cesar 
 {
-	JFrame appWindow = new JFrame();
-	JLabel tituloApp , numLettras
+	/*
+	 * Abeceario Cesar
+	 */
+		
+		char ABC[] = {'A','B','C','D',
+					  'E','F','G','H',
+					  'I','J','K','L',
+					  'M','N','Ñ','O',
+					  'P','Q','R','S',
+					  'T','U','V','W',
+					  'X','Y','Z' };
+		int abcTotal = ABC.length;
+		boolean UPPER = true;
+		
+	/**
+	 * Interfacez Graficas
+	 */
+	JFrame appWindow,contenedorTexto ;
+	JLabel tituloApp , labelLetras ,labelInputText;
+	JTextField numLetras;
+	JTextArea texto;
+	JTextArea msgCifrado;
+	JButton btnCifrar;
 	JRadioButton optCifrar = new JRadioButton("Cifrar",true);
 	JRadioButton optDescifrar = new JRadioButton("Decifrar",false);
  
