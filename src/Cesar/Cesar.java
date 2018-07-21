@@ -111,7 +111,7 @@ public class Cesar
 		texto.setEditable(true);
 		
 		
-		btnCifrar = new JButton(" Cifrar ");
+		btnCifrar = new JButton("Cifrar");
 		btnCifrar.setFont(new Font("Serif",Font.BOLD,20));
 		btnCifrar.setBounds(50, (texto.getLocation().y+220) , 400,35);
 		btnCifrar.addActionListener(
@@ -127,18 +127,23 @@ public class Cesar
 							int i = Integer.parseInt(num) ;
 							if(i >0  && i <= (abcTotal) ) 
 							{
-								opcion = trimEspace(btnCifrar.getText());
-								printl(opcion);
-								if(opcion == "Cifrar")
+								if(optCifrar.isSelected())
 								{
 									if(mensaje.isEmpty()) {
 										JOptionPane.showMessageDialog(null," Mensaje invalido ");
 									}else {
-										printl(btnCifrar.getText());
 										msgCifrado.setText(cifrar(mensaje,i));
 										JOptionPane.showMessageDialog(null," Mensaje Cifrado ");
 									}
-								}else {
+								}
+								if( optDescifrar.isSelected())
+								{
+									if(mensaje.isEmpty()) {
+										JOptionPane.showMessageDialog(null," Mensaje invalido ");
+									}else {
+										msgCifrado.setText(decifrar(mensaje,i));
+										JOptionPane.showMessageDialog(null," Mensaje Descifrado ");
+									}
 									
 								}
 								
@@ -203,7 +208,7 @@ public class Cesar
 				if(index > -1)
 				{	
 					int dex = index - brincos;
-					descifrando = descifrando+ returnChCryp(dex);					
+					descifrando = descifrando+ returnDecryp(dex);					
 				}
 			}else {
 				descifrando = descifrando+let;
@@ -285,7 +290,7 @@ public class Cesar
 	{
 		if(index < 0) 
 		{
-			int i = index - ( ABC.length - 1) ;
+			int i =  ( ABC.length - 1) - index ;
 			return ABC[i-1];
 			
 		}else {
